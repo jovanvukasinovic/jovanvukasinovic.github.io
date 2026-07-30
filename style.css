@@ -532,3 +532,56 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   .post-feature .post-top .headline{font-size:1.35rem}
   .post-feature .post-body{padding:32px 28px}
 }
+
+/* ---------- VAGA U SEKCIJI „ZAŠTO MEDIJACIJA?" ---------- */
+.why-grid{display:grid;grid-template-columns:210px 1fr;gap:40px;align-items:center}
+.tas-figure{position:relative;display:flex;align-items:center;justify-content:center;isolation:isolate}
+.tas-figure::before{
+  content:"";position:absolute;z-index:-1;
+  width:135%;padding-bottom:135%;left:50%;top:50%;transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(201,161,92,.30) 0%,
+    rgba(201,161,92,.13) 34%,
+    rgba(201,161,92,.04) 55%,
+    transparent 72%);
+}
+.tas-figure::after{
+  content:"";position:absolute;z-index:-1;bottom:2%;left:50%;transform:translateX(-50%);
+  width:78%;height:16px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 72%);
+}
+.tas-figure img,.tas-figure svg{
+  position:relative;width:100%;height:auto;max-height:360px;object-fit:contain;
+  filter:drop-shadow(0 16px 26px rgba(0,0,0,.55)) drop-shadow(0 0 26px rgba(201,161,92,.16));
+}
+
+/* ---------- RAM ZA LICENCU ---------- */
+.license-frame{
+  background:var(--white);border:2px solid var(--gold);
+  outline:1px solid var(--gold);outline-offset:7px;
+  padding:26px;text-align:center;box-shadow:var(--shadow);
+}
+.license-frame img{width:100%;height:auto}
+.license-ph{
+  border:1px dashed var(--cream-line);padding:52px 22px;color:var(--ink-soft);font-size:.92rem;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.license-ph svg{width:44px;height:44px;stroke:var(--gold);fill:none;stroke-width:1.2}
+.license-ph .lat{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--navy-800)}
+.license-cap{
+  margin-top:18px;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-deep);
+}
+.bg-navy .license-frame{background:rgba(255,255,255,.03)}
+
+@media(max-width:980px){
+  .why-grid{grid-template-columns:150px 1fr;gap:26px}
+  .tas-figure img,.tas-figure svg{max-height:230px}
+}
+@media(max-width:560px){
+  .why-grid{grid-template-columns:1fr;gap:22px}
+  .tas-figure{max-width:190px;margin:0 auto}
+  .license-frame{padding:18px}
+  .license-ph{padding:38px 16px}
+}

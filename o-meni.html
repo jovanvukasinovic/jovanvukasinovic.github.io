@@ -100,13 +100,16 @@
     <h2 class="title-md">Dozvola za posredovanje</h2>
     <div class="rule c"></div>
     <p class="lead" style="margin-bottom:34px">Upisan u Registar posrednika Ministarstva pravde Republike Srbije.</p>
-    <div style="max-width:620px;margin:0 auto;border:2px solid var(--gold);outline:1px solid var(--gold);outline-offset:8px;background:var(--white);padding:54px 34px">
-      <img src="licenca.jpg" alt="Dozvola za posredovanje" onerror="this.remove()" onload="this.nextElementSibling.remove()" style="margin:0 auto">
-      <div style="color:var(--ink-soft);font-size:.95rem">
-        <span class="serif" style="display:block;font-size:1.25rem;color:var(--navy-800);margin-bottom:10px">Lex et iustitia</span>
-        Ovde će biti istaknuta dozvola za posredovanje<br>izdata od Ministarstva pravde Republike Srbije.<br>
-        <span style="font-size:.82rem;opacity:.75">(dodajte fajl licenca.jpg)</span>
+    <div class="license-frame" style="max-width:620px;margin:0 auto">
+      <img src="licenca.jpg" alt="Dozvola za posredovanje"
+           onerror="if(this.src.indexOf('licenca.jpg')>-1){this.src='licenca.png'}else{this.remove()}"
+           onload="var d=document.getElementById('licOmeni'); if(d) d.remove()">
+      <div class="license-ph" id="licOmeni">
+        <svg viewBox="0 0 48 48"><rect x="9" y="6" width="30" height="36" rx="3"/><path d="M16 16h16M16 23h16M16 30h9"/><circle cx="33" cy="33" r="6"/><path d="m30 33 2 2 4-4"/></svg>
+        <span class="lat">Lex et iustitia</span>
+        Ovde se prikazuje dozvola za posredovanje<br>izdata od Ministarstva pravde Republike Srbije.
       </div>
+      <div class="license-cap">Dozvola za posredovanje</div>
     </div>
   </div>
 </section>
