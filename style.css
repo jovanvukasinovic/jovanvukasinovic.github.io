@@ -249,7 +249,7 @@ h1,h2,h3,h4,.serif{font-family:var(--serif);font-weight:600;line-height:1.22;let
   border:1px solid var(--gold);
   background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9a15c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/11px no-repeat;
 }
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px;position:relative}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:38px;position:relative}
 .steps::before{content:"";position:absolute;top:31px;left:12%;right:12%;height:1px;background:var(--navy-line)}
 .step{text-align:center;position:relative}
 .step-num{font-size:.62rem;letter-spacing:.2em;color:var(--gold);margin-bottom:9px}
@@ -474,9 +474,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 }
 
 /* ---------- RESPONSIVE ---------- */
+@media(max-width:1300px){
+  .nav{gap:19px}
+  .nav a{font-size:.7rem;letter-spacing:.09em}
+  .site-header .btn{padding:13px 20px;font-size:.72rem;letter-spacing:.1em}
+}
+@media(max-width:1150px){
+  /* dugme iz headera se sklanja — meni i dalje ima Kontakt */
+  .header-cta{display:none}
+  .nav{margin-left:auto}
+}
 @media(max-width:1080px){
-  .nav{gap:18px}
-  .nav a{font-size:.68rem;letter-spacing:.1em}
   .contact-rail{display:none}
 }
 @media(max-width:980px){
@@ -600,25 +608,25 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .btn-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 
 /* ---------- BRZI KONTAKT (telefon / Viber / WhatsApp) ---------- */
-.contact-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.contact-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:26px}
 .ca{
-  display:flex;align-items:center;gap:13px;
-  padding:14px 16px;text-decoration:none;
+  display:flex;align-items:center;gap:11px;
+  padding:12px 13px;text-decoration:none;
   background:var(--cream);border:1px solid var(--cream-line);border-radius:3px;
   transition:border-color .2s,background .2s,transform .2s,box-shadow .2s;
 }
 .ca:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);background:var(--white)}
 .ca-ic{
-  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
 }
-.ca-ic svg{width:20px;height:20px}
+.ca-ic svg{width:18px;height:18px;flex-shrink:0}
 .ca-txt{display:flex;flex-direction:column;line-height:1.3;min-width:0}
 .ca-txt b{
-  font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
   color:var(--navy-800);
 }
-.ca-txt small{font-size:.78rem;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ca-txt small{font-size:.74rem;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 .ca-phone .ca-ic{background:var(--burgundy)}
 .ca-phone .ca-ic svg{fill:var(--gold-light)}
@@ -636,8 +644,38 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   .contact-actions{grid-template-columns:1fr}
 }
 @media(max-width:980px){
-  .contact-actions{grid-template-columns:repeat(3,1fr)}
+  .contact-actions{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+  .contact-actions{grid-template-columns:1fr}
+}
+
+
+/* ---------- VRLO USKI EKRANI (stari/mali telefoni) ---------- */
+@media(max-width:420px){
+  .steps{grid-template-columns:1fr;gap:26px}
+  .tick-list{grid-template-columns:1fr}
+}
+
+/* ---------- ISTAKNUTI ZAKON ---------- */
+.law-card{
+  background:var(--white);border:1px solid var(--cream-line);
+  border-left:4px solid var(--gold);
+  padding:38px 40px;margin:0 0 42px;box-shadow:var(--shadow-sm);
+}
+.law-card .law-glasnik{
+  font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-deep);margin-bottom:14px;
+}
+.law-card h3{
+  font-size:clamp(1.15rem,2.2vw,1.5rem);color:var(--navy-800);
+  letter-spacing:.02em;margin-bottom:16px;line-height:1.3;
+}
+.law-card p{color:var(--ink-soft);margin-bottom:26px;max-width:74ch}
+.law-card .law-source{
+  display:block;margin-top:14px;font-size:.78rem;color:var(--ink-soft);font-style:italic;
 }
 @media(max-width:620px){
-  .contact-actions{grid-template-columns:1fr}
+  .law-card{padding:28px 22px}
+  .law-card .btn{width:100%;justify-content:center}
 }
