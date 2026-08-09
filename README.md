@@ -25,9 +25,10 @@ Podaci su trenutno primeri iz dizajna. Otvori `build.py` nije potreban — menja
 
 Samo ubaci fajl sa tačno ovim imenom u isti folder i sajt ga automatski pokupi:
 
-- `hero.jpg` — pozadinska fotografija na početnoj (kancelarija, sto za sastanke). Preporuka: široka, min. 1920px.
-- `bosko.jpg` — portret. Prikazuje se na početnoj i na stranici „O meni“.
-- `licenca.jpg` — sken dozvole za posredovanje. Prikazuje se u zlatnom ramu na stranici „O meni“.
+- `hero.jpg` (ili `hero.png` / `hero.webp`) — pozadinska fotografija na početnoj. Široka, min. 1920px.
+- `bosko.jpg` — portret. Prikazuje se na stranici „O meni“ (na početnoj je licenca).
+- `licenca.jpg` (ili `licenca.png`) — sken dozvole. Zlatni ram na početnoj i na stranici „O meni“.
+- `tas.png` (providna pozadina) ili `tas.jpg` — vaga u sekciji „Zašto medijacija?“. Priložen je gotov `tas.png`.
 
 Dok fajlovi ne postoje, sajt prikazuje elegantnu zamenu — ništa se ne lomi.
 
@@ -53,3 +54,27 @@ brojke se menjaju u `troskovi.html` — u nizu `PROC` (procenjivi predmeti) i u 
 - `troskovi.html` (kalkulator), `pravni-okvir.html`, `blog.html`, `blog-zasto-medijacija.html`, `kontakt.html`
 - `style.css` — sve boje i stilovi na jednom mestu (vrh fajla: `:root`)
 - `main.js` — mobilni meni
+
+
+## Širina sadržaja
+
+U `style.css`, pri vrhu u bloku `:root`:
+
+```css
+--wrap-max:1520px;   /* širina sadržaja */
+--wrap-pad:44px;     /* razmak od ivice ekrana */
+```
+
+- `1520px` — trenutno, široko, prati dizajn
+- `none` — sadržaj ide skroz od ivice do ivice ekrana
+- `1200px` — uži, klasičniji izgled
+
+Menja se samo na tom jednom mestu i primenjuje se na ceo sajt.
+
+## Redosled stavki u meniju
+
+Meni se ponavlja u **svakom** HTML fajlu (16 fajlova), pa ručna izmena u jednom
+fajlu menja meni samo na toj stranici. Ako menjaš ručno, moraš u svih 16.
+
+Trenutni redosled:
+`Početna · O meni · Usluge · Pravni okvir · Blog · Troškovi · Kontakt`
